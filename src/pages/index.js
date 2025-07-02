@@ -67,8 +67,8 @@ export default function Home() {
 
     if (typeof window !== "undefined") {
       //  initLiff(); // Ensure this runs only in the browser
-      // getLiff();
-      setLoading(false);
+      getLiff();
+      // setLoading(false);
     }
   }, []);
 
