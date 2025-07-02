@@ -91,7 +91,7 @@ export default function Home() {
       }
     };
     if (lineToken) {
-      // getUserProfile();
+      getUserProfile();
     }
   }, [lineToken]);
 
