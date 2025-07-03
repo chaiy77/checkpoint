@@ -131,7 +131,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="absolute inset-0  bg-[url('/images/sukhfesta_logo.jpg')]  opacity-40 z-0"></div>
+      <div className="absolute inset-0  bg-[url('/images/sukhfesta_logo.jpg')] bg-cover fixed opacity-40 z-0"></div>
       <PageComponent />
       {/* <MainComponent
         gotoPage={(page) => {
