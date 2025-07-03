@@ -79,7 +79,7 @@ export default function Home() {
         const profile = await liff.getProfile();
         // callApiLog("Line Token =" + lineToken);
         // console.log("Profile = ", profile.toString());
-        callApiLog("Line Token =" + JSON.stringify(profile));
+        // callApiLog("Line Token =" + JSON.stringify(profile));
         // console.log("Context = ", context.toString());
         setLineId(profile.userId);
         setLineName(profile.displayName);
@@ -131,110 +131,13 @@ export default function Home() {
 
   return (
     <div>
-      <div className="absolute inset-0  bg-[url('/images/sukhfesta_logo.jpg')] bg-cover fixed opacity-40 z-0"></div>
+      <div className="absolute inset-0  bg-[url('/images/background.webp')] md:bg-[url('/images/background_wide.webp')] bg-cover fixed opacity-40 z-0"></div>
       <PageComponent />
       {/* <MainComponent
         gotoPage={(page) => {
           gotoPage(page);
         }}
       /> */}
-      {/* <div className="mx-auto text-[15rem] text-[#55FFDD] ">{point}</div>
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            // href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => {
-              console.log("click");
-              setPoint((p) => {
-                console.log(p);
-                return p + 1;
-              });
-            }}
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-        </div> */}
-      {/* <footer className="row-start-3 z-99 w-full flex gap-[24px] flex-wrap items-center justify-center">
-        <div className="flex w-full items-center justify-center">
-          {" "}
-          <button
-            type="button"
-            className=" w-11/12 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            onClick={() => {
-              console.log("test");
-            }}
-          >
-            Check Point
-          </button>
-        </div>
-
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer> */}
     </div>
   );
 }
