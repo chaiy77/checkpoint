@@ -9,6 +9,7 @@ export default function ScanQRComponent({ gotoPage }) {
   const [liffObject, setLiffObject] = useState();
   const [qrData, setQrData] = useState(null);
   const [wating, setWaiting] = useState(true);
+  const [qrError, setQrError] = useState(null);
 
   const { addPointToMyList } = usePointContext();
 
@@ -41,8 +42,11 @@ export default function ScanQRComponent({ gotoPage }) {
       try {
         const result = await liff.scanCode();
         callApiLog("scan QR -> 41 -> scan result= " + JSON.stringify(result));
-        setQrData(result.value);
-        handleQRCodedata(result.value);
+        if (result.value) {
+          setQrData(result.value);
+          handleQRCodedata(result.value);
+        }
+        setQrError("Can not detect QR Code");
       } catch (err) {
         callApiLog("Scan failed:", err);
         callApiLog("กรุณาเปิดผ่านแอป LINE เท่านั้นเพื่อสแกน QR Code");
@@ -72,13 +76,22 @@ export default function ScanQRComponent({ gotoPage }) {
     }
   };
 
-  if (qrData) {
+  const QrMeessage = () => {
+    if (qrError) {
+      return <div> {qrError} </div>;
+    } else if (qrData) {
+      return <div> Welcome to {qrData} </div>;
+    }
+    return <div></div>;
+  };
+
+  if (qrData || qrError) {
     return (
       <div
         className={`  grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
       >
         <main className="flex flex-col gap-[32px] z-99 row-start-2 items-center sm:items-start md:items-start">
-          <div> Welcome to {qrData} </div>
+          <QrMeessage />
         </main>
         <footer className="row-start-3 z-99 w-full flex gap-[24px] flex-wrap items-center justify-center">
           <div className="flex w-full items-center justify-center">
